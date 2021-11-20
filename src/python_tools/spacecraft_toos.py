@@ -14,6 +14,9 @@ def calc_solar_array_power_generation(sun_distance, effective_area, efficiency=0
     
     OUTPUT:
     power_generation (float, scalar, units=W) - Amount of power the solar panel generated.
+
+    SOURCE:
+    [1] USC ASTE Lecture
     '''
 
     if sun_distance != 0:
@@ -27,18 +30,21 @@ def calc_solar_array_power_generation(sun_distance, effective_area, efficiency=0
     return power_generation
 
 
-def calc_panel_temperature(sun_distance, absorptivity=0.85, emissivity=0.72, solar_constant=1366):
+def calc_panel_temperature(sun_distance, absorptivity, emissivity, solar_constant=1366):
     '''
     Returns a flat panel's equilibrium steadystate temperature as a function of sun distance and material properties.
 
     INPUTS:
     sun_distance (float, scalar, units=AU) - Distance solar panel is from the sun in Astronomical Units. 
     absorptivity (float, scalar) - Degree to which panel absorbs energy, where 1.0 is perfect absorbant.
-    emissivity (float, scalar) - The effectiveness of emitting energy from the surface.
+    emissivity (float, scalar) - The effectiveness of emitting energy from the surface, where 1.0 is perfect.
     solar_constant (float, scalar, units=W/m^2) - Total energy received from the Sun per unit area, also referred to as Solar Flux. Average solar flux is 1366 W/m^2 (1 AU), value fluctuates +/- 0.1% through the 11-year solar cycles. 
 
     OUTPUT:
     power_generation (float, scalar, units=C) - Steadystate equilibrium temperature.
+
+    SOURCE:
+    [1] USC ASTE Lecture
     '''
     STEFAN_BOLTZMANN = 5.670374419*10**-8 # Stefan-Boltzmann constant (units = W /(m^2 * K^4))     
 
